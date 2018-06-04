@@ -1,6 +1,6 @@
 # Deep-Learning-n-Ubuntu-Hacks
 
-#copying
+>copying
 ```
 scp -rCq Desktop/cs231n rakhil@xxx.xxx.xxx.xxx:Desktop/
 rsync -avz -e 'ssh -i x.pem' Desktop/cs231n rakhil@xxx.xxx.xxx.xxx:Desktop/
