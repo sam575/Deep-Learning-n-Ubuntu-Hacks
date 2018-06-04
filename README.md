@@ -34,12 +34,12 @@ date
 sudo su
 ```
 
-#appending file
+>appending file
 ```
 echo 'dadaf3dad' >> lol.txt
 ```
 
-#history of commands
+>history of commands
 ```
 history | grep word
 vim ~/.bash_history
@@ -47,32 +47,32 @@ vim ~/.bash_history
 #reverse search with word
 ctrl + r ; type word
 
-#files n space in directory
+>files n space in directory
 ```
 du -hs #space in directory
 find . -type f | wc -l #num files in directory
 df -h #available space in disk
 ```
-#list 
+>list 
 ```
 ls 
 ll #advanced list 
 ll -lrt #sort with time 
 ```
 
-#ip
+>ip
 ```
 curl ipinfo.io/ip #global ip
 ifconfig #get local ip
 ipconfig #local ip forwindows
 ```
 
-#going to D drive in windows.. no cd
+>going to D drive in windows.. no cd
 ```
 D:
 ```
 
-#vim
+>vim
 
 cursor to start: gg; end: G; end of line: $
 
@@ -82,47 +82,47 @@ del all: dG (from cursor to end)
 
 search: / ; n & shift + n or N 
 
-#diff between files
+>diff between files
 
 #use meld in ubuntu or
 ```
 vimdiff lol1.txt lol2.txt
 ```
 
-#for viewing images
+>for viewing images
 ```
 eog lol.jpg
 ```
 
-#check symbolic links
+>check symbolic links
 ```
 ls -la /usr/bin/ | grep gcc
 ```
-#creating symbolic links
+>creating symbolic links
 ```
 ln -sfn /usr/bin/gcc-4.3 /usr/bin/gcc
 ```
 
-#env variables
+>env variables
 ```
 printenv #list all
 echo $LD_LIBRARY_PATH #print
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/rak/lib #add new path
 ```
 
-#browser from terminal
+>browser from terminal
 ```
 sensible-browser
 ```
-#wget
+>wget
 ```
 echo "check_certificate = off" >> ~/.wgetrc
 ```
-#youtube-dl
+>youtube-dl
 ```
 youtube-dl -f best -f mp4 https://www.youtube.com/watch?v=ekyBklxwQMU --proxy xxx.xxx.xxx.xx:80 --no-check-certificate
 ```
-#in sh file
+>in sh file
 ```
 #!/bin/bash
 ```
@@ -136,11 +136,11 @@ chmod +x lol.sh
 ./lol.sh 
 ```
 
-#input txt file in cpp
+>input txt file in cpp
 ```
 freopen("input.txt", "r", stdin);
 ```
-#adding a user in ubuntu
+>adding a user in ubuntu
 ```
 sudo su
 adduser username
@@ -149,7 +149,7 @@ su - username #switch to new user
 sudo ls -la /root #check if sudo access given
 ```
 
-#search for string in all files
+>search for string in all files
 ```
 grep -r "lol"
 ```
@@ -159,22 +159,22 @@ locate lol.txt
 ```
 
 ## Python
-#accessing n downloading files through browser
+>accessing n downloading files through browser
 ```
 python -m SimpleHTTPServer 8080 #in remote server
 xxx.xxx.xxx.xxx:8080 #open in local browser
 ```
-#python libraries location
+>python libraries location
 
 /usr/local/lib/python2.7/
 
-#pip install locally
+>pip install locally
 ```
 export PIP_CERT=/data/CRT_New.cer #if cert required
 pip install lol --user
 python -m pip install --user --upgrade lol
 ```
-#using local library without installation
+>using local library without installation
 ```
 import sys
 sys.path.insert(0,'/data/rakhil/keras')
@@ -188,13 +188,13 @@ rmvirtualenv lol
 ls $WORKON_HOME
 ```
 ## Github
-#pull
+>pull
 ```
 git status
 git remote update
 git pull
 ```
-#push
+>push
 ```
 git add -u
 git commit -m "lol"
@@ -218,20 +218,20 @@ show tmux sessions in tmux: ctrl+b s
 
 ## GPU
 
-#gpu info
+>gpu info
 ```
 lspci | grep VGA
 ```
-#using gpu
+>using gpu
 ```
 echo $CUDA_VISIBLE_DEVICES
 export CUDA_VISIBLE_DEVICES=1,2
 ```
-#gpu usage with refresh interval 1s
+>gpu usage with refresh interval 1s
 ```
 nvidia-smi -l 1
 ```
-#without filling terminal
+>without filling terminal
 ```
 watch -n 1 nvidia-smi
 ```
@@ -240,18 +240,18 @@ nvcc --version #cuda version
 cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2 #cudnn version
 ```
 ## ipython
-#ipython in remote machine and using it from local machine;go to browser localhost:8888
+>ipython in remote machine and using it from local machine;go to browser localhost:8888
 ```
 remote_user@remote_host$ ipython notebook --no-browser --port=8889
 local_user@local_host$ ssh -N -L localhost:8888:localhost:8889 rakhil@xxx.xxx.xxx.xxx
 ```
 
-#auto reload ipython
+>auto reload ipython
 ```
 %load_ext autoreload
 %autoreload 2
 ```
-#for using system commands in ipython
+>for using system commands in ipython
 ```
 !echo lol
 ```
@@ -265,32 +265,34 @@ CUDA_VISIBLE_DEVICES=3 python train_rpn.py #tensorflow
 ```
 ## Caffe
 #caffe suppress output prototxt https://stackoverflow.com/questions/29788075/setting-glog-minloglevel-1-to-prevent-output-in-shell-from-caffe
-#inc no less output .. use before import caffe
+
+#use before import caffe
 ```
 os.environ['GLOG_minloglevel'] = '2' 
 ```
 ## Tensorflow
-#gpu memory control
+>gpu memory control
 ```
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True #or 
 config.gpu_options.per_process_gpu_memory_fraction = 0.4
 session = tf.Session(config=config, ...)
 ```
-# test gpu 
+>test gpu 
 ```
 tf.test.is_gpu_available()
 ```
-#saving and restoring tf model
+>saving and restoring tf model: 
 http://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/
 
-#tensorboard port forwarding on remote machine(6006) and viewing on local machine port(16006)
+>tensorboard port forwarding on remote machine(6006) and viewing on local machine port(16006)
 ```
 ssh -f -L localhost:16006:localhost:6006 <user@remote> #in local
 ps aux | grep 6006 #for closing connection #in remote
 kill -9 pid #n remote
 ```
 ## Octave
+>
 ```
 octave -q test.m 
 ```
@@ -298,14 +300,14 @@ or in octave command line:
 ```
 test
 ```
-#installing locally
+>installing locally
 ```
 ./configure --prefix=/home/maxpower/.octave38/
 make -j2
 make install
 echo "alias octave38='~/.octave38/bin/octave'" >> ~/.bashrc
 ```
-#uninstall
+>uninstall
 ```
 make uninstall
 remove alias and downloaded folder
@@ -318,16 +320,18 @@ ffmpeg -i 1.mp4 -i 2.mp4 -i 3.mp4 -filter_complex "[0:v] [0:a] [1:v] [1:a] [2:v]
 ffmpeg -f concat -i mylist.txt -c copy output.mp4 #in list.txt format: file 'path/to/file'; combine similar videos
 ```
 ## Server 
-#make socket connection
+>make socket connection
 ```
 wscat -n -c wss://PRD_XXX.elb.amazonaws.com:443
 ```
-#socket processes
+>socket processes
 ```
 netstat -tulpn 
 ps -ef | grep 3000
 sudo netstat -anp | grep :3000 | grep ESTABLISHED | wc -l
 ```
+>>
+
 ```
 forever list
 ```
@@ -339,7 +343,7 @@ systemctl start nginx
 ```
 sudo cat /var/log/syslog | grep nginx #check logs
 ```
-#enable service
+>enable service
 ```
 sudo chmod 755 /etc/init.d/nginx 
 sudo systemctl enable nginx
