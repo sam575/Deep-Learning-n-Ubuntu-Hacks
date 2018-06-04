@@ -1,274 +1,309 @@
 # Deep-Learning-n-Ubuntu-Hacks
 
-#copying<br/>
-scp -rCq Desktop/cs231n rakhil@xxx.xxx.xxx.xxx:Desktop/<br/>
-rsync -avz -e \'ssh -i x.pem\' Desktop/cs231n rakhil@xxx.xxx.xxx.xxx:Desktop/<br/>
-rsync -avz Desktop/cs231n rakhil@xxx.xxx.xxx.xxx:Desktop/<br/>
-#add --rsync-path="sudo rsync" if ur copying to sudo location<br/>
-#faster rsync<br/>
-rsync -aqzP C3D rakhil@xxx.xxx.xxx.xxx:~/Desktop/<br/>
-<br/>
-tar -xvzf dasd //extract<br/>
-tar -cvzf dasd //compress<br/>
-<br/>
-#ssh using pem file<br/>
-ssh -i xxx.pem rakhil@xxx.xxx.xxx.xxx<br/>
-<br/>
-#aliases in /etc/hosts and .ssh/config<br/>
-<br/>
-#curr time<br/>
-date<br/>
-<br/>
-#root mode<br/>
-sudo su<br/>
-<br/>
-#appending file<br/>
-echo \'dadaf3dad\' >> lol.txt<br/>
-<br/>
-#history of commands<br/>
-history | grep word<br/>
-vim ~/.bash_history<br/>
-#reverse search with word<br/>
-ctrl + r ; type word<br/>
-<br/>
-#space in directory<br/>
-du -hs<br/>
-#num files in directory<br/>
-find . -type f | wc -l<br/>
-#available space in disk<br/>
-df -h<br/>
-<br/>
-ls #list <br/>
-ll #advanced list <br/>
-ll -lrt #sort with time <br/>
-<br/>
-#get public ip<br/>
-curl ipinfo.io/ip<br/>
-#get local ip<br/>
-ifconfig or ipconfig(windows)<br/>
-<br/>
-#going to D drive in windows.. no cd<br/>
-D:<br/>
-<br/>
-#vim<br/>
-cursor to start: gg; end: G; end of line: $<br/>
-del line: dd<br/>
-del all: dG(from cursor to end)<br/>
-search: / ; n & shift + n or N <br/>
-<br/>
-#diff between files<br/>
-vimdiff lol1.txt lol2.txt<br/>
-use meld in ubuntu<br/>
-<br/>
-#for viewing images<br/>
-eog lol.jpg<br/>
-<br/>
-#check symbolic links<br/>
-ls -la /usr/bin/ | grep gcc<br/>
-#creating symbolic links<br/>
-ln -sfn /usr/bin/gcc-4.3 /usr/bin/gcc<br/>
-<br/>
-#env variables<br/>
-printenv #list all<br/>
-echo $LD_LIBRARY_PATH #print<br/>
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/rak/lib #add new path<br/>
-<br/>
-#browser from terminal<br/>
-sensible-browser<br/>
-<br/>
-echo "check_certificate = off" >> ~/.wgetrc<br/>
-<br/>
-youtube-dl -f best -f mp4 https://www.youtube.com/watch?v=ekyBklxwQMU --proxy xxx.xxx.xxx.xx:80 --no-check-certificate<br/>
-<br/>
-#in sh file<br/>
-#!/bin/bash<br/>
-<br/>
-#executing sh files<br/>
-sh lol.sh <br/>
-#or give permission<br/>
-chmod +x lol.sh<br/>
-./lol.sh <br/>
-<br/>
-#input txt file in cpp<br/>
-freopen("input.txt", "r", stdin);<br/>
-<br/>
-#adding a user in ubuntu<br/>
-sudo su<br/>
-adduser username<br/>
-usermod -aG sudo username #give sudo access<br/>
-su - username #switch to new user<br/>
-sudo ls -la /root #check if sudo access given<br/>
-<br/>
-#search for string in all files<br/>
-grep -r "lol"<br/>
-#search file <br/>
-locate lol.txt<br/>
-<br/>
-<br/>
+#copying
+```
+scp -rCq Desktop/cs231n rakhil@xxx.xxx.xxx.xxx:Desktop/
+rsync -avz -e 'ssh -i x.pem' Desktop/cs231n rakhil@xxx.xxx.xxx.xxx:Desktop/
+rsync -avz Desktop/cs231n rakhil@xxx.xxx.xxx.xxx:Desktop/
+```
+#add --rsync-path="sudo rsync" if ur copying to sudo location
+#faster rsync
+```
+rsync -aqzP C3D rakhil@xxx.xxx.xxx.xxx:~/Desktop/
+```
 
-## Python<br/>
+```
+tar -xvzf dasd //extract
+tar -cvzf dasd //compress
+```
 
-#accessing n downloading files through browser<br/>
-python -m SimpleHTTPServer 8080 #in remote server<br/>
-xxx.xxx.xxx.xxx:8080 #open in local browser<br/>
-<br/>
-#python libraries location<br/>
-/usr/local/lib/python2.7/<br/>
-<br/>
-#pip install locally<br/>
-pip install lol --user<br/>
-python -m pip install --user --upgrade lol<br/>
-export PIP_CERT=/data/CRT_New.cer<br/>
-<br/>
-#using local library without installation<br/>
-import sys<br/>
-sys.path.insert(0,\'/data/rakhil/keras\')<br/>
-<br/>
+#ssh using pem file
+```
+ssh -i xxx.pem rakhil@xxx.xxx.xxx.xxx
+```
 
-## virtualenvwrapper<br/>
+#aliases in /etc/hosts and .ssh/config
 
-mkvirtualenv lol<br/>
-workon lol<br/>
-deactivate<br/>
-rmvirtualenv lol<br/>
-ls $WORKON_HOME<br/>
-<br/>
+#curr time
+```
+date
+```
 
-## Github<br/>
+#root mode
+```
+sudo su
+```
 
-#pull<br/>
-git status<br/>
-git remote update<br/>
-git pull<br/>
-#push<br/>
-git add -u<br/>
-git commit -m "lol"<br/>
-git push -u origin master<br/>
-<br/>
+#appending file
+```
+echo 'dadaf3dad' >> lol.txt
+```
 
-## tmux<br/>
+#history of commands
+```
+history | grep word
+vim ~/.bash_history
+```
+#reverse search with word
+ctrl + r ; type word
 
-tmux new -s name<br/>
-tmux attach -t name<br/>
-detach: ctrl+b d<br/>
-mouse up/down: ctrl+b [<br/>
-tmux kill-session //in session or ctrl+d<br/>
-next window: ctrl+b n prev: ctrl+b p<br/>
-new window: ctrl+b c kill window: ctrl+b x<br/>
-show tmux sessions in tmux: ctrl+b s<br/>
-<br/>
+#space in directory
+```
+du -hs
+```
+#num files in directory
+```
+find . -type f | wc -l
+```
+#available space in disk
+```
+df -h
+```
+
+```
+ls #list 
+ll #advanced list 
+ll -lrt #sort with time 
+```
+
+#get public ip
+```
+curl ipinfo.io/ip
+```
+#get local ip
+```
+ifconfig or ipconfig(windows)
+```
+
+#going to D drive in windows.. no cd
+```
+D:
+```
+
+#vim
+cursor to start: gg; end: G; end of line: $
+
+del line: dd
+
+del all: dG(from cursor to end)
+
+search: / ; n & shift + n or N 
+
+#diff between files
+#use meld in ubuntu or
+```
+vimdiff lol1.txt lol2.txt
+```
+
+#for viewing images
+```
+eog lol.jpg
+```
+
+#check symbolic links
+```
+ls -la /usr/bin/ | grep gcc
+```
+#creating symbolic links
+```
+ln -sfn /usr/bin/gcc-4.3 /usr/bin/gcc
+```
+
+#env variables
+```
+printenv #list all
+echo $LD_LIBRARY_PATH #print
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/rak/lib #add new path
+```
+
+#browser from terminal
+```
+sensible-browser
+```
+```
+echo "check_certificate = off" >> ~/.wgetrc
+```
+```
+youtube-dl -f best -f mp4 https://www.youtube.com/watch?v=ekyBklxwQMU --proxy xxx.xxx.xxx.xx:80 --no-check-certificate
+```
+#in sh file
+```
+#!/bin/bash
+```
+#executing sh files
+```
+sh lol.sh 
+```
+#or give permission
+```
+chmod +x lol.sh
+./lol.sh 
+```
+
+#input txt file in cpp
+```
+freopen("input.txt", "r", stdin);
+```
+#adding a user in ubuntu
+```
+sudo su
+adduser username
+usermod -aG sudo username #give sudo access
+su - username #switch to new user
+sudo ls -la /root #check if sudo access given
+```
+
+#search for string in all files
+```
+grep -r "lol"
+```
+#search file 
+```
+locate lol.txt
+```
+
+## Python
+#accessing n downloading files through browser
+python -m SimpleHTTPServer 8080 #in remote server
+xxx.xxx.xxx.xxx:8080 #open in local browser
+
+#python libraries location
+/usr/local/lib/python2.7/
+
+#pip install locally
+pip install lol --user
+python -m pip install --user --upgrade lol
+export PIP_CERT=/data/CRT_New.cer
+
+#using local library without installation
+import sys
+sys.path.insert(0,'/data/rakhil/keras')
+
+## virtualenvwrapper
+mkvirtualenv lol
+workon lol
+deactivate
+rmvirtualenv lol
+ls $WORKON_HOME
+
+## Github
+#pull
+git status
+git remote update
+git pull
+#push
+git add -u
+git commit -m "lol"
+git push -u origin master
+
+## tmux
+tmux new -s name
+tmux attach -t name
+detach: ctrl+b d
+mouse up/down: ctrl+b [
+tmux kill-session //in session or ctrl+d
+next window: ctrl+b n prev: ctrl+b p
+new window: ctrl+b c kill window: ctrl+b x
+show tmux sessions in tmux: ctrl+b s
 
 ## GPU
-#gpu info<br/>
-lspci | grep VGA<br/>
-<br/>
-#using gpu<br/>
-echo $CUDA_VISIBLE_DEVICES<br/>
-export CUDA_VISIBLE_DEVICES=1,2<br/>
-<br/>
-#gpu usage with refresh interval 1s<br/>
-nvidia-smi -l 1<br/>
-#without filling terminal<br/>
-watch -n 1 nvidia-smi<br/>
-<br/>
-nvcc --version #cuda version<br/>
-cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2 #cudnn version<br/>
-<br/>
 
-## ipython<br/>
+#gpu info
+lspci | grep VGA
 
-#ipython in remote machine and using it from local machine<br/>
-remote_user@remote_host$ ipython notebook --no-browser --port=8889<br/>
-local_user@local_host$ ssh -N -L localhost:8888:localhost:8889 rakhil@xxx.xxx.xxx.xxx<br/>
-go to browser localhost:8888<br/>
-<br/>
-#auto reload ipython<br/>
-%load_ext autoreload<br/>
-%autoreload 2<br/>
-<br/>
-!echo lol #for using system commands in ipython<br/>
-<br/>
+#using gpu
+echo $CUDA_VISIBLE_DEVICES
+export CUDA_VISIBLE_DEVICES=1,2
 
-## Keras <br/>
+#gpu usage with refresh interval 1s
+nvidia-smi -l 1
+#without filling terminal
+watch -n 1 nvidia-smi
 
-vim ~/.keras/keras.json<br/>
-<br/>
-THEANO_FLAGS=device=gpu0,lib.cnmem=0.55 python keras_proposal_layer.py #theano <br/>
-<br/>
-CUDA_VISIBLE_DEVICES=3 python train_rpn.py #tensorflow<br/>
-<br/>
+nvcc --version #cuda version
+cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2 #cudnn version
 
-## Caffe<br/>
+## ipython
+#ipython in remote machine and using it from local machine
+remote_user@remote_host$ ipython notebook --no-browser --port=8889
+local_user@local_host$ ssh -N -L localhost:8888:localhost:8889 rakhil@xxx.xxx.xxx.xxx
+go to browser localhost:8888
 
-#caffe suppress output prototxt https://stackoverflow.com/questions/29788075/setting-glog-minloglevel-1-to-prevent-output-in-shell-from-caffe<br/>
-#inc no less output .. use before import caffe<br/>
-os.environ[\'GLOG_minloglevel\'] = \'2\' <br/>
-<br/>
+#auto reload ipython
+%load_ext autoreload
+%autoreload 2
 
-## Tensorflow<br/>
+!echo lol #for using system commands in ipython
 
-#gpu memory control<br/>
-config = tf.ConfigProto()<br/>
-config.gpu_options.allow_growth = True or config.gpu_options.per_process_gpu_memory_fraction = 0.4<br/>
-session = tf.Session(config=config, ...)<br/>
-<br/>
-#test gpu <br/>
-tf.test.is_gpu_available()<br/>
-<br/>
-#saving and restoring tf model<br/>
-http://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/<br/>
-<br/>
-#tensorboard port forwarding on remote machine(6006) and viewing on local machine port(16006)<br/>
-ssh -f -L localhost:16006:localhost:6006 <user@remote><br/>
-ps aux | grep 6006 #for closing connection<br/>
-kill -9 pid<br/>
-<br/>
+## Keras 
+vim ~/.keras/keras.json
 
-## Octave<br/>
+THEANO_FLAGS=device=gpu0,lib.cnmem=0.55 python keras_proposal_layer.py #theano 
 
-octave -q test.m <br/>
-or in octave command: test<br/>
-<br/>
-#installing locally<br/>
-./configure --prefix=/home/maxpower/.octave38/<br/>
-make -j2<br/>
-make install<br/>
-echo "alias octave38=\'~/.octave38/bin/octave\'" >> ~/.bashrc<br/>
-#uninstall<br/>
-make uninstall<br/>
-remove alias and downloaded folder<br/>
-<br/>
+CUDA_VISIBLE_DEVICES=3 python train_rpn.py #tensorflow
 
-## ffmpeg<br/>
+## Caffe
+#caffe suppress output prototxt https://stackoverflow.com/questions/29788075/setting-glog-minloglevel-1-to-prevent-output-in-shell-from-caffe
+#inc no less output .. use before import caffe
+os.environ['GLOG_minloglevel'] = '2' 
 
-ffmpeg -i lolo.mp4 #print properties<br/>
-ffmpeg -i inp.mp4 -ss 00:30:00 -t 00:50:00 -acodec copy -vcodec copy out.mp4 //cut video of 50 secs starting from 30s<br/>
-ffmpeg -i 1.mp4 -i 2.mp4 -i 3.mp4 -filter_complex "[0:v] [0:a] [1:v] [1:a] [2:v] [2:a] concat=n=3:v=1:a=1 [v] [a]" -map "[v]" -map "[a]" output_3.mp4 #combine diff videos<br/>
-ffmpeg -f concat -i mylist.txt -c copy output.mp4 #in list.txt format: file \'path/to/file\'; combine similar videos<br/>
-<br/>
+## Tensorflow
+#gpu memory control
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True or config.gpu_options.per_process_gpu_memory_fraction = 0.4
+session = tf.Session(config=config, ...)
 
-## Server <br/>
+# test gpu 
+tf.test.is_gpu_available()
 
-#make socket connection<br/>
-wscat -n -c wss://PRD_XXX.elb.amazonaws.com:443<br/>
-<br/>
-#socket processes<br/>
-netstat -tulpn <br/>
-ps -ef | grep 3000<br/>
-sudo netstat -anp | grep :3000 | grep ESTABLISHED | wc -l<br/>
-<br/>
-forever list<br/>
-<br/>
+#saving and restoring tf model
+http://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/
 
-## sytemctl <br/>
+#tensorboard port forwarding on remote machine(6006) and viewing on local machine port(16006)
+ssh -f -L localhost:16006:localhost:6006 <user@remote>
+ps aux | grep 6006 #for closing connection
+kill -9 pid
 
-systemctl status nginx<br/>
-systemctl start nginx<br/>
-<br/>
-sudo cat /var/log/syslog | grep nginx #check logs<br/>
-<br/>
-#enable service<br/>
-sudo chmod 755 /etc/init.d/nginx <br/>
-sudo systemctl enable nginx<br/>
-sudo systemctl daemon-reload<br/>
+## Octave
+octave -q test.m 
+or in octave command: test
+
+#installing locally
+./configure --prefix=/home/maxpower/.octave38/
+make -j2
+make install
+echo "alias octave38='~/.octave38/bin/octave'" >> ~/.bashrc
+#uninstall
+make uninstall
+remove alias and downloaded folder
+
+## ffmpeg
+
+ffmpeg -i lolo.mp4 #print properties
+ffmpeg -i inp.mp4 -ss 00:30:00 -t 00:50:00 -acodec copy -vcodec copy out.mp4 //cut video of 50 secs starting from 30s
+ffmpeg -i 1.mp4 -i 2.mp4 -i 3.mp4 -filter_complex "[0:v] [0:a] [1:v] [1:a] [2:v] [2:a] concat=n=3:v=1:a=1 [v] [a]" -map "[v]" -map "[a]" output_3.mp4 #combine diff videos
+ffmpeg -f concat -i mylist.txt -c copy output.mp4 #in list.txt format: file 'path/to/file'; combine similar videos
+
+## Server 
+#make socket connection
+wscat -n -c wss://PRD_XXX.elb.amazonaws.com:443
+
+#socket processes
+netstat -tulpn 
+ps -ef | grep 3000
+sudo netstat -anp | grep :3000 | grep ESTABLISHED | wc -l
+
+forever list
+
+## sytemctl 
+
+systemctl status nginx
+systemctl start nginx
+
+sudo cat /var/log/syslog | grep nginx #check logs
+
+#enable service
+sudo chmod 755 /etc/init.d/nginx 
+sudo systemctl enable nginx
+sudo systemctl daemon-reload
 sudo systemctl reset-failed
