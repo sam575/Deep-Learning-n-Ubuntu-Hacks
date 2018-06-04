@@ -12,24 +12,24 @@ rsync -avz Desktop/cs231n rakhil@xxx.xxx.xxx.xxx:Desktop/
 ```
 rsync -aqzP C3D rakhil@xxx.xxx.xxx.xxx:~/Desktop/
 ```
-#tar
+>tar
 ```
 tar -xvzf dasd //extract
 tar -cvzf dasd //compress
 ```
 
-#ssh using pem file
+>ssh using pem file
 ```
 ssh -i xxx.pem rakhil@xxx.xxx.xxx.xxx
 ```
 #aliases in /etc/hosts and .ssh/config
 
-#curr time
+>curr time
 ```
 date
 ```
 
-#root mode
+>root mode
 ```
 sudo su
 ```
