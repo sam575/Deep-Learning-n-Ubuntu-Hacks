@@ -243,7 +243,7 @@ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2 #cudnn version
 >ipython in remote machine and using it from local machine;go to browser localhost:8888
 ```
 remote_user@remote_host$ ipython notebook --no-browser --port=8889
-local_user@local_host$ ssh -N -L localhost:8888:localhost:8889 rakhil@xxx.xxx.xxx.xxx
+local_user@local_host$ ssh -N -L localhost:8888:localhost:8889 remote_user@xxx.xxx.xxx.xxx
 ```
 
 >auto reload ipython
