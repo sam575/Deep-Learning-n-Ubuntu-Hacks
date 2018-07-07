@@ -7,7 +7,9 @@ rsync -avz -e 'ssh -i x.pem' Desktop/cs231n rakhil@xxx.xxx.xxx.xxx:Desktop/
 rsync -avz Desktop/cs231n rakhil@xxx.xxx.xxx.xxx:Desktop/
 ```
 #use rsync if you want to update files in the same directory
+
 #if you want delete old files in the same directory use --delete
+
 #add --rsync-path="sudo rsync" if ur copying to sudo location
 
 #faster rsync
