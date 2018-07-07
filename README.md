@@ -6,6 +6,8 @@ scp -rCq Desktop/cs231n rakhil@xxx.xxx.xxx.xxx:Desktop/
 rsync -avz -e 'ssh -i x.pem' Desktop/cs231n rakhil@xxx.xxx.xxx.xxx:Desktop/
 rsync -avz Desktop/cs231n rakhil@xxx.xxx.xxx.xxx:Desktop/
 ```
+#use rsync if you want to update files in the same directory
+#if you want delete old files in the same directory use --delete
 #add --rsync-path="sudo rsync" if ur copying to sudo location
 
 #faster rsync
@@ -19,10 +21,11 @@ tar -cvzf dasd //compress
 ```
 
 >ssh using pem file
+
+#or use aliases in /etc/hosts and .ssh/config
 ```
 ssh -i xxx.pem rakhil@xxx.xxx.xxx.xxx
 ```
-#aliases in /etc/hosts and .ssh/config
 
 >curr time
 ```
@@ -41,11 +44,12 @@ echo 'dadaf3dad' >> lol.txt
 
 >history of commands
 ```
-history | grep word
+history | grep "string"
 vim ~/.bash_history
 ```
 #reverse search with word
-ctrl + r ; type word
+
+ctrl + r ; type string
 
 >files n space in directory
 ```
@@ -80,7 +84,7 @@ del line: dd
 
 del all: dG (from cursor to end)
 
-search: / ; n & shift + n or N 
+search: /search_word ; n & shift + n or N for next and prev word 
 
 >diff between files
 
@@ -97,6 +101,7 @@ eog lol.jpg
 >check symbolic links
 ```
 ls -la /usr/bin/ | grep gcc
+ll
 ```
 >creating symbolic links
 ```
@@ -124,19 +129,20 @@ youtube-dl -f best -f mp4 https://www.youtube.com/watch?v=ekyBklxwQMU --proxy xx
 ```
 >in sh file
 ```
-#!/bin/bash
+#!/bin/bash #for bash script
+#!/bin/sh #for shell script
 ```
-#executing sh files
+#executing bash files
 ```
 sh lol.sh 
 ```
-#or give permission
+#executing shell script
 ```
 chmod +x lol.sh
 ./lol.sh 
 ```
 
->input txt file in cpp
+>reading input from txt file in cpp
 ```
 freopen("input.txt", "r", stdin);
 ```
@@ -152,6 +158,8 @@ sudo ls -la /root #check if sudo access given
 >search for string in all files
 ```
 grep -r "lol"
+grep -r "lol" . #in curr dir
+grep -i "lol" #ignore-case
 ```
 #search file 
 ```
@@ -196,14 +204,17 @@ git pull
 ```
 >push
 ```
-git add -u
+git add -u #add only edited files
+git add new_file.py #add a new specific file
+git add . #add all files
+
 git commit -m "lol"
 git push -u origin master
 ```
 ## tmux
 ```
-tmux new -s name
-tmux attach -t name
+tmux new -s name #create new tmux session
+tmux attach -t name #attach a specific tmux session.. need not type full name, unique prefix is enough
 tmux kill-session #in session or ctrl+d
 ```
 detach: ctrl+b d
@@ -274,8 +285,8 @@ os.environ['GLOG_minloglevel'] = '2'
 >gpu memory control
 ```
 config = tf.ConfigProto()
-config.gpu_options.allow_growth = True #or 
-config.gpu_options.per_process_gpu_memory_fraction = 0.4
+config.gpu_options.allow_growth = True #takes the min required memory or 
+config.gpu_options.per_process_gpu_memory_fraction = 0.4 #fixed memory - 40% of total memory
 session = tf.Session(config=config, ...)
 ```
 >test gpu 
@@ -289,7 +300,7 @@ http://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-co
 ```
 ssh -f -L localhost:16006:localhost:6006 <user@remote> #in local
 ps aux | grep 6006 #for closing connection #in remote
-kill -9 pid #n remote
+kill -9 pid #in remote
 ```
 ## Octave
 >
@@ -326,7 +337,8 @@ wscat -n -c wss://PRD_XXX.elb.amazonaws.com:443
 ```
 >socket processes
 ```
-netstat -tulpn 
+netstat -tulpn #or
+netstat -anp
 ps -ef | grep 3000
 sudo netstat -anp | grep :3000 | grep ESTABLISHED | wc -l
 ```
@@ -335,7 +347,8 @@ sudo netstat -anp | grep :3000 | grep ESTABLISHED | wc -l
 ```
 forever list
 ```
-## sytemctl 
+## sytemctl
+>Ref: https://wiki.archlinux.org/index.php/systemd
 ```
 systemctl status nginx
 systemctl start nginx
