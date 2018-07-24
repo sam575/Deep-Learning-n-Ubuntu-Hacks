@@ -1,5 +1,7 @@
 # Deep-Learning-n-Ubuntu-Hacks
 
+>For windows users: [Windows equivalent to Linux commands](http://www.covingtoninnovations.com/mc/winforunix.html)
+
 >copying
 ```
 scp -rCq Desktop/cs231n rakhil@xxx.xxx.xxx.xxx:Desktop/
