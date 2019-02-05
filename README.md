@@ -191,6 +191,11 @@ python -m pip install --user --upgrade lol
 import sys
 sys.path.insert(0,'/data/rakhil/keras')
 ```
+>using linux commands
+```
+os.system('mkdir lol')
+os.makedirs(lol, exist_ok=True)
+```
 ## virtualenvwrapper
 ```
 mkvirtualenv lol
