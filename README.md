@@ -68,6 +68,11 @@ ll #advanced list
 ll -lrt #sort with time 
 ```
 
+> Check quota alloted to user
+```
+quota -us
+```
+
 >ip
 ```
 curl ipinfo.io/ip #global ip
@@ -130,6 +135,9 @@ echo "check_certificate = off" >> ~/.wgetrc
 >youtube-dl
 ```
 youtube-dl -f best -f mp4 https://www.youtube.com/watch?v=ekyBklxwQMU --proxy xxx.xxx.xxx.xx:80 --no-check-certificate
+# mp3 format
+youtube-dl -x --audio-format mp3 -i --yes-playlist https://www.youtube.com/playlist?list=PLNPDZJ1Lllc9bIW77JV9JEotb7_FR40pZ
+youtube-dl -x --audio-format mp3 -i PLNPDZJ1Lllc9bIW77JV9JEotb7_FR40pZ
 ```
 >in sh file
 ```
@@ -196,6 +204,14 @@ sys.path.insert(0,'/data/rakhil/keras')
 os.system('mkdir lol')
 os.makedirs(lol, exist_ok=True)
 ```
+>Try and expect
+```
+import traceback
+try:
+	# some error occurs
+except Exception as e:
+	print(traceback.format_exc())
+```
 ## virtualenvwrapper
 ```
 mkvirtualenv lol
@@ -219,6 +235,17 @@ git add . #add all files
 
 git commit -m "lol"
 git push -u origin master
+```
+>Git to overwrite local files
+```
+git fetch origin master
+git reset —hard FETCH_HEAD
+git clean -df
+```
+>Git pull only one file
+```
+git fetch
+git checkout FETCH_HEAD lol.py
 ```
 ## tmux
 ```
@@ -244,8 +271,11 @@ lspci | grep VGA
 ```
 >using gpu
 ```
+#in terminal
 echo $CUDA_VISIBLE_DEVICES
 export CUDA_VISIBLE_DEVICES=1,2
+#in python script
+os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 ```
 >gpu usage with refresh interval 1s
 ```
@@ -255,6 +285,11 @@ nvidia-smi -l 1
 ```
 watch -n 1 nvidia-smi
 ```
+>user process running on GPU
+```
+ps -f `nvidia-smi | grep -A 100 PID | grep C | awk {'printf($3"\t")'}`
+```
+>cuda and cudnn versions
 ```
 nvcc --version #cuda version
 cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2 #cudnn version
@@ -262,10 +297,13 @@ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2 #cudnn version
 ## ipython
 >ipython in remote machine and using it from local machine;go to browser localhost:8888
 ```
-remote_user@remote_host$ ipython notebook --no-browser --port=8889
-local_user@local_host$ ssh -N -L localhost:8888:localhost:8889 remote_user@xxx.xxx.xxx.xxx
+remote_user@remote_host$ ipython notebook --no-browser --port=8890
+local_user@local_host$ ssh -N -L localhost:8888:localhost:8890 remote_user@xxx.xxx.xxx.xxx
 ```
-
+>Common access system
+```
+ipython notebook --ip '*' --port 8890 --no-browser
+```
 >auto reload ipython
 ```
 %load_ext autoreload
@@ -274,6 +312,11 @@ local_user@local_host$ ssh -N -L localhost:8888:localhost:8889 remote_user@xxx.x
 >for using system commands in ipython
 ```
 !echo lol
+```
+>kill jupyter kernel from inside the notebook
+```
+%%javascript
+Jupyter.notebook.session.delete();
 ```
 ## Keras 
 ```
@@ -372,3 +415,6 @@ sudo systemctl enable nginx
 sudo systemctl daemon-reload
 sudo systemctl reset-failed
 ```
+
+> install sublime text 3 without sudo on ubuntu server
+https://forum.sublimetext.com/t/install-sublime-text3-without-sudo/42893/4
